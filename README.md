@@ -5,12 +5,16 @@ Vue3 + Vite + Pinia를 활용하여 개발한 전자 계산기 입니다.
 
 ## 🚀 주요 기능
 
-### 📄 문서 관리
-- **다양한 형식 지원**: PDF, DOCX, TXT, MD 파일 업로드
-- **자동 파싱**: Apache Tika를 사용한 텍스트 추출
-- **청크 분할**: 문서를 의미있는 단위로 분할
-- **임베딩 생성**: 각 청크별 벡터 임베딩 자동 생성
-- **문서 메타데이터**: 제목, 설명, 카테고리 관리
+### 📄 계산기
+- **간편 기능**: 키보드 입력
+- **연산**: 나머지 및 사칙연산 ( 실수 및 정수 )
+- **초기화**: 계산 초기화
+
+### ✅ To-Do
+- **공학 계산**: 제곱, 제곱근, 거듭제곱, 역수, 절댓값, 지수/로그
+- **고급 함수**: 삼각함수, 역삼각함수, 하이퍼볼릭 함수
+- **기타** : 진법 변환, 비트 연산, 팩토리얼, 조합/순열
+- **테스트** : E2E 및 기능 테스트 코드
 
 ## 🛠 기술 스택
 
@@ -36,14 +40,14 @@ yarn run dev
 ### 프로젝트 구조
 ```
 src
-├── assets/                # 리소스
-├── components/            # 컴포넌트
-├── composables/           # 컴포저블 
-├── router/                # 라우터
-├── types/                 # Type Model
-├── utils/                 # 유틸
-|    └── sweetalert2/      # SweetAlert2 Composable Module
-└── tests/                 # Test 파일
+├── assets/               # 리소스
+├── components/           # 컴포넌트
+├── composables/          # 컴포저블 
+├── router/               # 라우터
+├── types/                # Type Model
+├── utils/                # 유틸
+|    └─ sweetalert2/      # SweetAlert2 Composable Module
+└── tests/                # Test 파일
 ```
 
 ### 빌드 및 테스트
