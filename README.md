@@ -64,14 +64,6 @@ yarn run build
 yarn run coverage
 ```
 
-## 📈 성능 최적화
-
-- **Reactive Programming**: WebFlux로 높은 동시성 처리
-- **Connection Pooling**: Redis/PostgreSQL 연결 풀 최적화
-- **Caching**: Redis 기반 캐싱으로 응답 속도 향상
-- **Rate Limiting**: 과도한 요청 방지
-- **Connection Timeout**: 30초 타임아웃으로 안정성 확보
-
 ## 📝 라이선스
 
 Apache License
