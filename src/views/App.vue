@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import SwalDemo from '@/utils/sweetalert2/SwalDemo.vue';
-  import Calculator from './views/Calculator.vue';
+  // import SwalDemo from '@/components/SwalDemo.vue';
+  import Calculator from '@/components/Calculator.vue';
 
   const isTheme = "forest"
 </script>

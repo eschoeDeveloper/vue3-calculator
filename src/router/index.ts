@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, type RouteRecordRaw} from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
+import App from '@/views/App.vue'
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', name: 'home', component: HelloWorld }
+  { path: '/', name: 'home', component: App }
 ]
 
 const router = createRouter({
