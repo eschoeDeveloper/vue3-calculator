@@ -1,0 +1,21 @@
+import { defineConfig } from 'vitest/config'
+import vue from '@vitejs/plugin-vue'
+import { fileURLToPath } from 'url'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src/', import.meta.url)), // ✅ ESM 안전
+    }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+  },
+  server: {
+    port: 5173,
+    open: true
+  }
+})

@@ -1,0 +1,381 @@
+.calculator-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.calculator {
+  width: 100%;
+  max-width: 380px;
+  background: #1e1e2e;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* 디스플레이 */
+.display {
+  background: #2a2a3e;
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-bottom: 20px;
+  text-align: right;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.display-history {
+  font-size: 1rem;
+  color: #8a8a9e;
+  margin-bottom: 8px;
+  min-height: 24px;
+  word-break: break-all;
+}
+
+.display-current {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  word-break: break-all;
+  line-height: 1.2;
+}
+
+/* 버튼 그리드 */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* 버튼 기본 스타일 */
+.btn {
+  border: none;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #ffffff;
+  background: #2a2a3e;
+  outline: none;
+  user-select: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 숫자 버튼 */
+.btn-number {
+  background: #2a2a3e;
+  color: #ffffff;
+}
+
+.btn-number:hover {
+  background: #363648;
+}
+
+/* 0 버튼 (2칸 차지) */
+.btn-zero {
+  grid-column: span 2;
+}
+
+/* 기능 버튼 (AC, ±, %) */
+.btn-function {
+  background: #3a3a4e;
+  color: #ffffff;
+}
+
+.btn-function:hover {
+  background: #4a4a5e;
+}
+
+/* 연산자 버튼 */
+.btn-operator {
+  background: #667eea;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-operator:hover {
+  background: #5568d3;
+}
+
+/* = 버튼 */
+.btn-equals {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-equals:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #654a8f 100%);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 480px) {
+  .calculator {
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .display {
+    padding: 20px 16px;
+    min-height: 100px;
+  }
+
+  .display-current {
+    font-size: 2rem;
+  }
+
+  .display-history {
+    font-size: 0.9rem;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 20px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .display-current {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    padding: 16px;
+    font-size: 1.2rem;
+  }
+}
+
+/* 애니메이션 효과 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calculator {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 키보드 입력 시 버튼 효과 */
+.btn:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* 테마별 스타일 */
+.calculator-dark {
+  background: #0d1117;
+}
+
+.calculator-dark .display {
+  background: #161b22;
+}
+
+.calculator-dark .btn-number {
+  background: #21262d;
+}
+
+.calculator-dark .btn-number:hover {
+  background: #30363d;
+}
+
+.calculator-dark .btn-function {
+  background: #30363d;
+}
+
+.calculator-dark .btn-function:hover {
+  background: #484f58;
+}
+
+.calculator-dark .btn-operator {
+  background: #238636;
+}
+
+.calculator-dark .btn-operator:hover {
+  background: #2ea043;
+}
+
+.calculator-dark .btn-equals {
+  background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+}
+
+.calculator-light {
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.calculator-light .display {
+  background: #f6f8fa;
+}
+
+.calculator-light .display-current {
+  color: #24292f;
+}
+
+.calculator-light .display-history {
+  color: #57606a;
+}
+
+.calculator-light .btn-number {
+  background: #f6f8fa;
+  color: #24292f;
+}
+
+.calculator-light .btn-number:hover {
+  background: #e8ebed;
+}
+
+.calculator-light .btn-function {
+  background: #e8ebed;
+  color: #24292f;
+}
+
+.calculator-light .btn-function:hover {
+  background: #d0d7de;
+}
+
+.calculator-light .btn-operator {
+  background: #0969da;
+}
+
+.calculator-light .btn-operator:hover {
+  background: #0550ae;
+}
+
+.calculator-light .btn-equals {
+  background: linear-gradient(135deg, #0969da 0%, #0550ae 100%);
+}
+
+.calculator-ocean {
+  background: #1a4d7d;
+}
+
+.calculator-ocean .display {
+  background: #153a5e;
+}
+
+.calculator-ocean .btn-number {
+  background: #1e5a8e;
+}
+
+.calculator-ocean .btn-number:hover {
+  background: #26699e;
+}
+
+.calculator-ocean .btn-function {
+  background: #26699e;
+}
+
+.calculator-ocean .btn-function:hover {
+  background: #2e78ae;
+}
+
+.calculator-ocean .btn-operator {
+  background: #00a8ff;
+}
+
+.calculator-ocean .btn-operator:hover {
+  background: #0097e6;
+}
+
+.calculator-ocean .btn-equals {
+  background: linear-gradient(135deg, #00a8ff 0%, #0097e6 100%);
+}
+
+.calculator-sunset {
+  background: #c44569;
+}
+
+.calculator-sunset .display {
+  background: #a73854;
+}
+
+.calculator-sunset .btn-number {
+  background: #d8567f;
+}
+
+.calculator-sunset .btn-number:hover {
+  background: #e66590;
+}
+
+.calculator-sunset .btn-function {
+  background: #e66590;
+}
+
+.calculator-sunset .btn-function:hover {
+  background: #f074a1;
+}
+
+.calculator-sunset .btn-operator {
+  background: #ffa07a;
+}
+
+.calculator-sunset .btn-operator:hover {
+  background: #ff8c66;
+}
+
+.calculator-sunset .btn-equals {
+  background: linear-gradient(135deg, #ffa07a 0%, #ff8c66 100%);
+}
+
+.calculator-forest {
+  background: #1e6f5c;
+}
+
+.calculator-forest .display {
+  background: #155847;
+}
+
+.calculator-forest .btn-number {
+  background: #289672;
+}
+
+.calculator-forest .btn-number:hover {
+  background: #2ea67d;
+}
+
+.calculator-forest .btn-function {
+  background: #2ea67d;
+}
+
+.calculator-forest .btn-function:hover {
+  background: #34b589;
+}
+
+.calculator-forest .btn-operator {
+  background: #52c41a;
+}
+
+.calculator-forest .btn-operator:hover {
+  background: #73d13d;
+}
+
+.calculator-forest .btn-equals {
+  background: linear-gradient(135deg, #52c41a 0%, #73d13d 100%);
+}
