@@ -55,7 +55,6 @@
   const calcOperator = ref<string>('');
   const waitingForOperand = ref<boolean>(false);
 
-
   const displayHistory = ref<string>('');
   const displayValue = computed(() => {
     return currentValue.value;
@@ -78,35 +77,35 @@
     const eventKey = event.key;
     const currValueLength = currentValue.value.length;
 
-    /^[0-9]$/.test(eventKey) && (function() {
-      calculatorInput(eventKey);
+    /^[0-9]$/.test(eventKey) && (async function() {
+      await calculatorInput(eventKey);
     })();
 
-    eventKey === '.' && (function() {
-      inputDecimal();
+    eventKey === '.' && (async function() {
+      await inputDecimal();
     })();
 
-    (eventKey === '+' || eventKey === "-" || eventKey === "x" || eventKey === "/" ) && (function() {
-      setOperator(eventKey);
+    (eventKey === '+' || eventKey === "-" || eventKey === "x" || eventKey === "/" ) && (async function() {
+      await setOperator(eventKey);
     })();
 
-    (eventKey === "%") && (function() {
-      setPercentage();
+    (eventKey === "%") && (async function() {
+      await setPercentage();
     });
 
-    (eventKey === 'Enter' || eventKey === '=') && (function() {
-      calculatorExec();
+    (eventKey === 'Enter' || eventKey === '=') && (async function() {
+      await calculatorExec();
     })();
 
-    (eventKey === "Escape" || eventKey === "c" || eventKey === "C") && (function() {
-      clearAll();
+    (eventKey === "Escape" || eventKey === "c" || eventKey === "C") && (async function() {
+      await clearAll();
     })();
 
-    (eventKey === "Backspace" && currValueLength > 1) && (function() {
+    (eventKey === "Backspace" && currValueLength > 1) && (async function() {
       currentValue.value = currentValue.value.slice(0, -1);
     })();
 
-    (eventKey === "Backspace" && currValueLength < 1) && (function(){
+    (eventKey === "Backspace" && currValueLength < 1) && (async function(){
       currentValue.value = '0';
     })();
 
@@ -130,6 +129,7 @@
       if(currentValue.value.length < 12) {
         currentValue.value += num;
       }
+
     })();
 
   };
@@ -156,7 +156,8 @@
     })();
 
     previousValue.value = currentValue.value;
-    calcOperator.value = oper;
+    // calcOperator.value = oper;
+    calcOperator.value = oper.replace('×', 'x').replace('÷', '/');
 
     displayHistory.value = `${previousValue.value} ${oper}`;
     currentValue.value = '0';
@@ -185,10 +186,14 @@
       case "-":
         resultValue = prevValue - currValue;
         break;
+      case "×":
       case "x":
+      case "X":
+      case "*":
         resultValue = prevValue * currValue;
         break;
       case "/":
+      case "÷":
          currValue === 0 && (async function() {
           swalModule.error("입력값 오류", "0은 나눌수 없습니다").then(function() {
             currentValue.value = "0";

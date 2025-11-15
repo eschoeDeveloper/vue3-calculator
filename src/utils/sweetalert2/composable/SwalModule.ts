@@ -15,6 +15,7 @@ export function useSwal() {
   const swalStore = useSwalStore();
 
   return {
+  
     // 기본 알림
     show: (options: SwalOptions) => swalStore.show(options),
     
